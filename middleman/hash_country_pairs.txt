@@ -1,0 +1,19 @@
+{"hash":"be89032ed7b95282795637c5748638c420f8521be00cb11eb9454100eb6444a9","country":{"range":[1088618496,1088634879],"country":"US","region":"FL","eu":"0","timezone":"America/New_York","city":"Jacksonville","ll":[30.1426,-81.5727],"metro":561,"area":1000}}
+{"hash":"be89032ed7b95282795637c5748638c420f8521be00cb11eb9454100eb6444a9","country":{"range":[1088618496,1088634879],"country":"US","region":"FL","eu":"0","timezone":"America/New_York","city":"Jacksonville","ll":[30.1426,-81.5727],"metro":561,"area":1000}}
+{"hash":"be89032ed7b95282795637c5748638c420f8521be00cb11eb9454100eb6444a9","country":{"range":[1088618496,1088634879],"country":"US","region":"FL","eu":"0","timezone":"America/New_York","city":"Jacksonville","ll":[30.1426,-81.5727],"metro":561,"area":1000}}
+{"hash":"d15f4c128ebcbbc1506929035e537158b1271f1444b30bb4b7a1ff3e414e5ccb","country":{"range":[2335932416,2335940607],"country":"DE","region":"HE","eu":"1","timezone":"Europe/Berlin","city":"Frankfurt am Main","ll":[50.1188,8.6843],"metro":0,"area":50}}
+{"hash":"d15f4c128ebcbbc1506929035e537158b1271f1444b30bb4b7a1ff3e414e5ccb","country":{"range":[2335932416,2335940607],"country":"DE","region":"HE","eu":"1","timezone":"Europe/Berlin","city":"Frankfurt am Main","ll":[50.1188,8.6843],"metro":0,"area":50}}
+{"hash":"d15f4c128ebcbbc1506929035e537158b1271f1444b30bb4b7a1ff3e414e5ccb","country":{"range":[2335932416,2335940607],"country":"DE","region":"HE","eu":"1","timezone":"Europe/Berlin","city":"Frankfurt am Main","ll":[50.1188,8.6843],"metro":0,"area":50}}
+{"hash":"d15f4c128ebcbbc1506929035e537158b1271f1444b30bb4b7a1ff3e414e5ccb","country":{"range":[2335932416,2335940607],"country":"DE","region":"HE","eu":"1","timezone":"Europe/Berlin","city":"Frankfurt am Main","ll":[50.1188,8.6843],"metro":0,"area":50}}
+{"hash":"da759b1b7e484fd3b526fbb276bd90c8e3e0b030fe9c38aa15983ae1df792c55","country":{"range":[3229686272,3229686783],"country":"DE","region":"BY","eu":"1","timezone":"Europe/Berlin","city":"Nordhalben","ll":[50.3741,11.5099],"metro":0,"area":100}}
+{"hash":"1","country":"2"}
+{"hash":"1","country":"2"}
+{"hash":"1","country":"2"}
+{"hash":"1","country":"2"}
+{"hash":"1","country":"2"}
+{"hash":"da759b1b7e484fd3b526fbb276bd90c8e3e0b030fe9c38aa15983ae1df792c55","country":{"range":[3229686272,3229686783],"country":"DE","region":"BY","eu":"1","timezone":"Europe/Berlin","city":"Nordhalben","ll":[50.3741,11.5099],"metro":0,"area":100}}
+{"hash":"da759b1b7e484fd3b526fbb276bd90c8e3e0b030fe9c38aa15983ae1df792c55","country":{"range":[3229686272,3229686783],"country":"DE","region":"BY","eu":"1","timezone":"Europe/Berlin","city":"Nordhalben","ll":[50.3741,11.5099],"metro":0,"area":100}}
+{"hash":"da759b1b7e484fd3b526fbb276bd90c8e3e0b030fe9c38aa15983ae1df792c55","country":{"range":[3229686272,3229686783],"country":"DE","region":"BY","eu":"1","timezone":"Europe/Berlin","city":"Nordhalben","ll":[50.3741,11.5099],"metro":0,"area":100}}
+{"hash":"da759b1b7e484fd3b526fbb276bd90c8e3e0b030fe9c38aa15983ae1df792c55","country":{"range":[3229686272,3229686783],"country":"DE","region":"BY","eu":"1","timezone":"Europe/Berlin","city":"Nordhalben","ll":[50.3741,11.5099],"metro":0,"area":100}}
+{"hash":"da759b1b7e484fd3b526fbb276bd90c8e3e0b030fe9c38aa15983ae1df792c55","country":{"range":[3229686272,3229686783],"country":"DE","region":"BY","eu":"1","timezone":"Europe/Berlin","city":"Nordhalben","ll":[50.3741,11.5099],"metro":0,"area":100}}
+{"hash":"da759b1b7e484fd3b526fbb276bd90c8e3e0b030fe9c38aa15983ae1df792c55","country":{"range":[3229686272,3229686783],"country":"DE","region":"BY","eu":"1","timezone":"Europe/Berlin","city":"Nordhalben","ll":[50.3741,11.5099],"metro":0,"area":100}}

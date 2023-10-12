@@ -1,0 +1,37 @@
+<!-- =========================================================================
+     "index.html"
+
+     Part of BiasScanner, a system to strengthen democracy by supporting
+     critical reading online
+
+     Developed by the Information Access Research Group (Professor Leidner)
+     at Coburg University of Applied Sciences, Coburg, Bavaria, Germany.
+     Copyright (C)2023 by Dr. Jochen L. Leidner. All Rights reserved. 
+     =========================================================================
+  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BiasScanner</title>
+  </head>
+  <body>
+    <h1>BiasScanner</h1>
+    <form action="/" method="POST">
+      <label for="message">User:</label>
+      <input type="text" id="message" name="message" required autofocus>
+      <input type="submit" value="Send">
+    </form>
+    <hr>
+    <h2>Chat Log:</h2>
+    <ul>
+      {% for entry in chat_log %}
+        <li><strong>{{ entry['role'] }}:</strong> {{ entry['content'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+
+<!-- =========================================================================
+     end of file "index.html"
+     =========================================================================
+  -->

@@ -1,0 +1,25 @@
+.
+├── LICENSE.md
+├── README.md
+├── RELEASE.md
+├── TREE
+├── biasscanner.html
+├── doc
+│   ├── BiasScanner-2023-06-30.pdf
+│   ├── flask-deploy-howto.txt
+│   └── interactive-chat.png
+├── img
+│   └── biasscanner-logo.png
+├── requirements.txt
+└── src
+    ├── app.py
+    ├── res
+    │   ├── extract-bias-extended.pmt
+    │   ├── extract-bias.pmt
+    │   ├── extract-complex.pmt
+    │   ├── extract-hatespeech-alt.pmt
+    │   ├── extract-hatespeech.pmt
+    │   └── extract-long.pmt
+    └── templates
+        ├── index.html
+        └── news-parsed.html

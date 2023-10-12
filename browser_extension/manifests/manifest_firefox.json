@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Text Highlighter",
+  "version": "1.0",
+  "description": "A Firefox add-on to highlight text on a website",
+  "permissions": ["activeTab","scripting","alarms"],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon.png",   // Path to a 16x16 pixel icon
+      "48": "icons/icon.png",   // Path to a 48x48 pixel icon
+      "128": "icons/icon.png"  // Path to a 128x128 pixel icon
+    },
+    "default_title": "Text Highlighter"
+  },
+  "icons": {
+    "16": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  }
+}

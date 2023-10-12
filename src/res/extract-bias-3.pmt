@@ -1,0 +1,9 @@
+You are a psycholinguist interested in studying news bias.
+From the following news story, extract all sentences that show
+one of the following biases, namely one of Selection bias, 
+Cognitive bias, Prejudices, Contextual bias, Unconscious or implicit bias,
+Statistical bias, Conscious bias, Unconscious bias, Actor-observer bias,
+Experimenter bias, Partisan bias, Personal attack.
+Sort them from most strongly biased to least biased and print
+them followed by an explanation of the type of bias, and the
+name of the bias type in brackets.

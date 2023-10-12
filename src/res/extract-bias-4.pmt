@@ -1,0 +1,12 @@
+"You are a psycholinguist interested in studying news bias." +
+"From the following news story, extract all sentences that show" +
+"one of the following biases, namely one of Selection bias," +
+"Cognitive bias, Prejudices, Contextual bias, Unconscious or implicit bias," +
+"Statistical bias, Conscious bias, Unconscious bias, Actor-observer bias," +
+"Experimenter bias, Partisan bias, Personal attack." +
+"Sort them from most strongly biased to least biased and print the sorted list with each sentence followed by an explanation of the type of bias, and the name of the bias type in brackets." +
+"Here is an example of how the format of the output should look like: \n" +
+"1. \"While some misguided individuals may argue that salted popcorn is the pinnacle of flavor, they are sorely mistaken.\" (Prejudices) - This sentence exhibits prejudices as it dismisses the opposing viewpoint of those who prefer salted popcorn by labeling them as \"misguided\" and \"sorely mistaken.\" \n" +
+"2. \"Sweet popcorn offers a multitude of enticing flavors that elevate your taste buds to new heights.\" (Cognitive bias) - This sentence demonstrates cognitive bias as it presents a subjective opinion about the flavors of sweet popcorn without providing objective evidence or considering alternative perspectives. \n" +
+"3. \"From classic caramel to mouthwatering chocolate-coated varieties, sweet popcorn tantalizes your senses with every crunchy bite.\" (Contextual bias) - This sentence displays contextual bias as it selectively highlights specific flavors of sweet popcorn that are considered appealing, potentially ignoring other flavors or preferences.\n" +
+"This is the news story in question:"
