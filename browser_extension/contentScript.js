@@ -71,6 +71,17 @@ function filterData(data) {
   return data;
 }
 
+function findJSON(text)
+{
+  const jsonRegex = /{(?:[^{}]|{(?:[^{}]|{[^{}]*})*})*}/;
+  const match = text.match(jsonRegex);
+
+  if (match) {
+  return JSON.parse(match[0]);
+  }
+  return false;
+}
+
 
 function getRelevantText()
 {
@@ -365,28 +376,39 @@ var answer_json = null;
 var article = getRelevantText();
 
 var prompt = `You are a psycholinguist interested in studying news bias. Check if a news story contains examples of biased reporting. Focus on of  following biases:\nLinguistic bias encompasses all forms of bias induced by lexical features, such as word choice and sentence structure, often subconsciously used. Generally, linguistic bias is expressed through specific word choice that reflects the social-category cognition applied to any described group or individual(s).\nText-level context bias refers to the expression of a text\'s context, whereby words and statements can shape the context of an article and sway the reader\'s perspective. These biases can be used to portray a particular opinion in a biased way by criticizing one side more than the other, using inflammatory words, or omitting relevant information.\\r\\n\\r\\nReporting-level context bias refers to bias that arises through decisions made by editors and journalists on what events to report and which sources to use. While text-level context bias examines the bias present within an individual article, reporting-level bias focuses on systematic attention given to specific topics.\nCognitive bias occurs when readers introduce bias by selecting which articles to read and which sources to trust, which can be amplified in social media. These biases can lead to self-reinforcing cycles and expose readers to only one side of an issue.\nHate speech refers to any language that manifests hatred towards na specific group or aims to degrade, humiliate, or offend. Usually, hate speech is induced by using linguistic bias. Particularly in social media, the impact of hate speech is significant and exacerbates tensions between involved parties. However, similar processes can also be observed within, e.g., comments on news websites.\nFake news refers to published content based on false claims and premises, presented as being true to deceive the reader. Research on fake news detection typically focuses on detecting it through linguistic features or comparing content to verified information. Fake news have serious consequences, such as potential influences on the readers\' health and political decisions.\nRacial bias is expressed through negative or positive portrayals of racial groups. Research has shown that racial bias in news coverage can severely impact affected minorities, such as strengthening stereotypes and discrimination.\nGender bias in media can manifest as discrimination against one gender through underrepresentation or negative portrayal. Gender bias in media can severely impact perceptions of professions and role models, as well as voting decisions.\nPolitical bias refers to a text\'s political leaning or ideology, potentially influencing the reader\'s political opinion and, ultimately, their voting behavior. There are several approaches to detecting political bias in media, e.g., counting the appearance of certain political parties or ideology-associated words.\nFirst of all, check if any part of the article's reporting would fall under one of these bias criteria. Focus on the way an action is reported on, not the reported action itself. When identifying Text-level context bias, Reporting-level context bias or Cognitiive bias, be rather restrained and only name those in very obvious cases. If yes, in the second step, extract the sentences you identified as showing bias, name the type of bias, assign a score between 0 (no bias) and 1 (very high bias) indicating the strength of the bias. Finally, please conclude with a general assessment of whether the article as a whole seems to be biased towards one or more issues. Always answer with a JSON like this {\"sentences:[{\"text\": quote from article,\"bias_type\": bias type,\"bias_score\": bias strength, \"bias_description\":description of the bias and context},{\"text\": ...}, ...],\"overall bias\":{\"conclusion\": overall assessment of the article\'s bias.}}\n Properly escape all quotation marks in the JSON. \n If a sentence does not show any bias, never include it in the JSON.\n
-If the article does not seem to exhibit any notable bias, answer with a JSON containing the conclusion and where the sentences array is empty.\nHere is an example of how the output could like in practice:\n{ \"sentences\": [ { \"text\": \"While some misguided individuals may argue that salted popcorn is the pinnacle of flavor, they are sorely mistaken.\", \"bias_type\": \"Linguistic bias\", \"bias_score\": 0.6, \"bias_description\": \"This sentence uses the term \'misguided individuals\' to describe those who prefer salted popcorn, which introduces a negative judgment and bias against them.\" }, { \"text\": \"Critics of sweet popcorn often argue that it is too sugary and lacks the savory satisfaction of its salted counterpart. However, this misguided notion fails to appreciate the sheer joy that sweet popcorn brings to every movie night or afternoon snack.\", \"bias_type\": \"Linguistic bias\", \"bias_score\": 0.7, \"bias_description\": \"The term \'misguided notion\' is used to describe the criticism of sweet popcorn, implying that those who criticize it are mistaken or ignorant.\" }, { \"text\": \"So, the next time you find yourself reaching for a bag of salted popcorn, pause for a moment and consider the truly superior choice.\", \"bias_type\": \"Linguistic bias\", \"bias_score\": 0.8, \"bias_description\": \"The phrase \'truly superior choice\' implies a strong bias in favor of sweet popcorn, suggesting that it is the only correct or superior option.\" } ], \"overall_bias\": { \"conclusion\": \"The article exhibits linguistic bias throughout, with a consistent bias in favor of sweet popcorn and against those who prefer salted popcorn. The bias score for the article is relatively high, indicating a strong bias in its messaging.\" } }\nThis is the news story in question:\n${article}`;
+If the article does not seem to exhibit any notable bias, answer exclusively with a JSON containing the conclusion and where the sentences array is empty.\nHere is an example of how the output could like in practice:\n{ \"sentences\": [ { \"text\": \"While some misguided individuals may argue that salted popcorn is the pinnacle of flavor, they are sorely mistaken.\", \"bias_type\": \"Linguistic bias\", \"bias_score\": 0.6, \"bias_description\": \"This sentence uses the term \'misguided individuals\' to describe those who prefer salted popcorn, which introduces a negative judgment and bias against them.\" }, { \"text\": \"Critics of sweet popcorn often argue that it is too sugary and lacks the savory satisfaction of its salted counterpart. However, this misguided notion fails to appreciate the sheer joy that sweet popcorn brings to every movie night or afternoon snack.\", \"bias_type\": \"Linguistic bias\", \"bias_score\": 0.7, \"bias_description\": \"The term \'misguided notion\' is used to describe the criticism of sweet popcorn, implying that those who criticize it are mistaken or ignorant.\" }, { \"text\": \"So, the next time you find yourself reaching for a bag of salted popcorn, pause for a moment and consider the truly superior choice.\", \"bias_type\": \"Linguistic bias\", \"bias_score\": 0.8, \"bias_description\": \"The phrase \'truly superior choice\' implies a strong bias in favor of sweet popcorn, suggesting that it is the only correct or superior option.\" } ], \"overall_bias\": { \"conclusion\": \"The article exhibits linguistic bias throughout, with a consistent bias in favor of sweet popcorn and against those who prefer salted popcorn. The bias score for the article is relatively high, indicating a strong bias in its messaging.\" } }\nThis is the news story in question:\n${article}`;
 
 console.log("Checking for bias:");
 addLoadingFooter();
-chrome.runtime.sendMessage({ "type": "prompt", "text": prompt }, function (answer) {
-  console.log("Received answer from background script",answer);
-  clearInterval(animationInterval);
-  if (chrome.runtime.lastError)
-  {
-      console.log("Error during communication with background script",chrome.runtime.lastError);
-      document.getElementById("bias_footer").innerHTML = "There was an error with the background script. Maybe try restarting the addon.";
 
-  }
-  else
-  {
-    answer_json = JSON.parse(answer);
+chrome.runtime.sendMessage({ "type": "prompt", "text": prompt }, function (answer) {
+  console.log("Received answer from the background script", answer);
+  clearInterval(animationInterval);
+
+  if (chrome.runtime.lastError) {
+    console.log("Error during communication with the background script", chrome.runtime.lastError);
+    document.getElementById("bias_footer").innerHTML = "There was an error with the background script. Maybe try restarting the addon.";
+  } else {
+    let answer_json = false;
+
+    try {
+      answer_json = JSON.parse(answer);
+    } catch (error) {
+      console.log("Could not parse JSON, searching in message.")
+      answer_json = findJSON(answer);
+      console.log("Found JSON: ", answer_json)
+    }
+
+    if (!answer_json) {
+      answer_json = JSON.parse('{"sentences":[],"overall bias":{"conclusion":"There was an error, somehow biasscanner returned an invalid JSON"}}');
+    }
+
     answer_json = filterData(answer_json);
     markSentences(answer_json);
-    addCollapsibleFooter(sortAndFormat(answer_json,false));
+    addCollapsibleFooter(sortAndFormat(answer_json, false));
   }
-
 });
+
 
 
 
