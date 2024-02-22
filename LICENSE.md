@@ -1,4 +1,4 @@
-Bias-Scanner is copyright (c)2023 by Jochen L. Leidner.
+Bias-Scanner is copyright (c)2023, 2024 by Jochen L. Leidner.
 All rights reserved.
 
 §1. License Grant
@@ -6,7 +6,17 @@ All rights reserved.
 Subject to the terms and conditions of this License, the Licensor
 (Dr. Jochen L. Leidner) hereby grants you a worldwide, royalty-free,
 non-sublicensable, non-exclusive, revocable right to use Bias-Scanner
-("the Software") for non-commercial use only.
+("the Software") for non-commercial use only, provided
+
+(a) it is used for the Approved Purpose (as defined in §3 below); 
+
+(b) a copy of this license is included;
+
+(c) a link to https://github.com/Information-Access-Research-Group-IARG/biasscanner/
+    is retained in the package, distribution and installation; and
+
+(d) any changes made by the licensees are also open-sourced under this
+    license.
 
 §2. No Commercial Use
 
@@ -14,7 +24,16 @@ Commercial use is not permitted under this license.  For a commercial
 license, please contact the Licensor to obtain a separate, commercial
 license.
 
-§3. Disclaimer of Warranties and Limitation of Liability
+§3. Approved Purpose
+
+BiasScanner and derived software shall only be used for the purposes of
+news analysis (news bias identification and classification).
+
+It is strictly prohibited, and constitutes a grave violation of this
+license leading to its automatic revocation, to generate biased news,
+propaganda, fake news and other content with this system.
+
+§4. Disclaimer of Warranties and Limitation of Liability
 
 Unless otherwise separately undertaken by the Licensor, to the extent
 possible, the Licensor offers the Licensed Material as-is and
