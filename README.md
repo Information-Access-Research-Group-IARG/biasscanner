@@ -56,4 +56,4 @@ Thanks for being a part of the Bias Scanner Project – let's keep the internet 
 ## Contact Us
 If you have any questions or would like to get involved, feel free to contact us at (Mail addresses are hidden right now to ensure anonymity during a paper review process). 
 
-&copy; 2023 Bias Scanner Project
+&copy; 2023-2024 Bias Scanner Project
