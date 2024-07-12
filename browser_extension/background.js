@@ -1,8 +1,10 @@
+let browser = (typeof chrome !== 'undefined') ? chrome : browser;
+
 // Function to execute the content script on the current tab
 function executeContentScript(tabId) {
   chrome.scripting.executeScript({
     target: { tabId: tabId },
-    files: ["Readability.js", "mark.min.js", "contentScript.js"],
+    files: ["Readability.js", "mark.min.js", "contentScript.js"]
   });
 }
 
@@ -20,16 +22,25 @@ browser.alarms.onAlarm.addListener((alarm) => {
 }
 
 // Listen for the browser action (when the extension icon is clicked)
-chrome.action.onClicked.addListener((tab) => {
+//chrome.action.onClicked.addListener((tab) => {
   // Execute the content script on the current tab
-  executeContentScript(tab.id);
-});
+ // executeContentScript(tab.id);
+//});
+
 
 keepBackgroundPeristent();
 
 // Listen for messages from the content script
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
   console.log(message);
+
+  if (message.action == "buttonClicked")
+  {
+     executeContentScript(message.tabId);
+  }
+  else
+  {
+
   fetch('https://app.biasscanner.org:8080', {
     method: 'POST',
     headers: {
@@ -38,7 +49,8 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     body: JSON.stringify({
       "type": message.type,
       "text": message.text,
-      "url": message.url
+      "url": message.url,
+      "language": message.language
     })
   })
   .then((response) => response.text())
@@ -57,6 +69,7 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 
   // Return true to indicate that sendResponse will be used asynchronously.
   return true;
+  }
 });
 
 

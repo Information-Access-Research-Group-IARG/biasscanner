@@ -7,6 +7,25 @@ const geoip = require('geoip-lite');
 const app = express()
 const port = 8080
 
+function loadInitialPrompt(language) {
+  
+  let filePath = `prompts/prompt_${language}.txt`;
+
+  try {
+    // Synchronously read the contents of the file
+    const data = fs.readFileSync(filePath, 'utf8');
+    // Continue with the rest of your code here using the 'data' variable
+    return data;
+  } catch (err) {
+    console.error('Unable to read file:', err);
+  }
+
+}
+
+var prompt_en = loadInitialPrompt("en");
+
+var prompt_de = loadInitialPrompt("de");
+
 app.use(cors())
 
 app.use(express.json());
@@ -103,6 +122,17 @@ console.log(data,limit);
   return under_limit;
 }
 
+function selectPrompt(language)
+{
+    
+ if (language == "en")
+{ return prompt_en;}
+  else  if (language == "de") 
+ { 
+   return prompt_de;
+    }
+}
+
 
 app.post('/', (request, response) => {
 
@@ -111,6 +141,12 @@ console.log(response.header);
 var type = request.body.type;
 
 var text = request.body.text;
+
+console.log("PROMPT PRE JSON", selectPrompt(request.body.language));
+console.log("###############################")
+console.log ("TEXT PRE JSON", text);
+console.log("#################################")
+console.log ("TEXT",JSON.stringify({    "model": "gpt-3.5-turbo-1106",  "messages": [{"role": "system", "content": selectPrompt(request.body.language)},{"role": "user", "content": text}],    "temperature": 0.0,    "response_format":{"type": "json_object"}  }))
 
 if (type == "prompt")
 {
@@ -121,18 +157,21 @@ fetch('https://api.openai.com/v1/chat/completions', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': ""
+    'Authorization': ''
   },
   body: JSON.stringify({
-    "model": "gpt-3.5-turbo-16k",
-    "messages": [{"role": "user", "content": text}],
-    "temperature": 0.0
+    "model": "ft:gpt-3.5-turbo-1106:coburg-university-of-applied-sciences-and-arts:bias-babe-3-0:8uKcDEGv",
+    //"model": "gpt-4-1106-preview",
+    "messages": [{"role": "system", "content": selectPrompt(request.body.language)},{"role": "user", "content": text}],
+    "temperature": 0.15,
+    "response_format":{"type": "json_object"}
   })
 })
   .then(response => response.json())
   .then(data => {
     // Handle the response data here
     console.log("Made API request");
+    console.log("OG MESSAGE", data)
     var answer = data.choices[0].message.content;
     console.log("ANSWER",answer);
     under_limit = trackTraffic(request,response,4398046511104,answer); //4 terrabyte

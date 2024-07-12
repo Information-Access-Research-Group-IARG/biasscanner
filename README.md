@@ -44,16 +44,14 @@ We believe technology can make news consumption better and protect democracy. So
 Thanks for being a part of the Bias Scanner Project – let's keep the internet news-savvy and bias-free!
 
 ## Our Team
-(Team info is hidden right now to ensure anonymity during a paper review process).
+Bias Scanner is being developed by the Information Access Research Group (IARG) of the Center for Responsible Artificial Intelligence (CRAI) at Coburg University of Applied Sciences. The group members include: Jochen Leidner, Tim Menzner (mainly responsible for Bias Scanner), Michael Reiche and Markos Dimitsas).
 
 ## Links
-- [Git](https://github.com/Information-Access-Research-Group-IARG/BiasScannerPublic)
-- [Firefox (will be added when officially published)](https://www.example.com/link2)
+- [Website (including demo)](https://biasscanner.org/)
+- [Firefox](https://addons.mozilla.org/de/firefox/addon/bias-scanner/)
 - [Chrome (will be added when officially published)](https://www.example.com/link3)
-- [Android (will be added when officially published)](https://www.example.com/link3)
+- [Android (extension for Firefox Android)](https://addons.mozilla.org/de/android/addon/bias-scanner/)
 - [iOS (will be added when officially published)](https://www.example.com/link3)
 
 ## Contact Us
-If you have any questions or would like to get involved, feel free to contact us at (Mail addresses are hidden right now to ensure anonymity during a paper review process). 
-
-&copy; 2023-2024 Bias Scanner Project
+If you have any questions or would like to get involved, feel free to contact us at tim.menzner@hs-coburg.de . 

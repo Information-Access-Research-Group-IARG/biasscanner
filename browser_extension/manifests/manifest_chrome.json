@@ -1,10 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Text Highlighter",
+  "name": "Bias Scanner",
   "version": "1.0",
-  "description": "A Firefox add-on to highlight text on a website",
-  "permissions": ["activeTab","scripting","alarms"],
+  "description": "A Firefox add-on to highlight potentially biased sentences on news article sites",
+  "permissions": ["activeTab","scripting","alarms","storage"],
   "action": {
+    "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon.png",   // Path to a 16x16 pixel icon
       "48": "icons/icon.png",   // Path to a 48x48 pixel icon

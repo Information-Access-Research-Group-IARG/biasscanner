@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Addon Popup</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-width: 250px;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    #container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #dropdown {
+      padding: 6px;
+      font-size: 12px;
+    }
+
+    option[data-lang="en"]::before {
+      content: "\1F1EC\1F1E7";  /* Emoji for English flag */
+    }
+
+    option[data-lang="de"]::before {
+      content: "\1F1E9\1F1EA";  /* Emoji for German flag */
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 6px 12px;
+      font-size: 12px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .slider-container {
+      width: 100%;
+      margin-top: -5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slider {
+      width: 200px;
+    }
+
+    #slider-value {
+      position: relative;
+      top: 0px;
+      right: 50%;
+      margin-bottom: 5px;
+    }
+
+    #slider-name {
+      margin-bottom: 0px; /* Added margin bottom */
+    }
+
+
+  </style>
+  <script src="popup.js"></script>
+</head>
+<body>
+  <h1>Bias Scanner</h1>
+
+  <div id="container">
+    <div id="language-container">
+      <select id="dropdown">
+        <option value="en" data-lang="en">🇬🇧 English</option>
+        <option value="de" data-lang="de">🇩🇪 Deutsch</option>
+        <!-- Add more options as needed -->
+      </select>
+      <button id="detect-bias">Detect Bias!</button>
+    </div>
+    <div class="slider-container">
+      <label id="slider-name">Minimum Strength</label>
+      <input type="range" min="0.1" max="1.0" value="0.1" step="0.1" class="slider" id="sensitivity-slider">
+      <label id="slider-value">1.0</label>
+    </div>
+  </div>
+
+</body>
+</html>
